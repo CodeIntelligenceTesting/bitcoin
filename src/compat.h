@@ -71,9 +71,9 @@ typedef int32_t ssize_t;
 #endif
 #endif
 
-#if HAVE_DECL_STRNLEN == 0
-size_t strnlen( const char *start, size_t max_len);
-#endif // HAVE_DECL_STRNLEN
+// #if HAVE_DECL_STRNLEN == 0
+// size_t strnlen( const char *start, size_t max_len);
+// #endif // HAVE_DECL_STRNLEN
 
 #ifndef WIN32
 typedef void* sockopt_arg_type;
