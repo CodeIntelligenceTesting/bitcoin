@@ -1,0 +1,32 @@
+{
+  "name": "asmap_ci-12b06336",
+  "displayName": "asmap_ci",
+  "buildFlags": [
+    "-v",
+    "-O4",
+    "-Isrc",
+    "-Isrc/crc32c/include",
+    "-Isrc/secp256k1/include",
+    "-lbitcoin_util",
+    "-Isrc/test/fuzz/include",
+    "-Isrc/crypto",
+    "-Itest/fuzz",
+    "-Lsrc",
+    "-Lsrc/crypto",
+    "-lbitcoin_common",
+    "-lbitcoin_crypto_base",
+    "-lbitcoin_util",
+    "-lbitcoin_cli",
+    "-ltest_fuzz",
+    "-lsecp256k1",
+    "-Lsrc/secp256k1/.libs",
+    "-lsecp256k1",
+    "-Lsrc/univalue/.libs",
+    "-lunivalue"
+  ],
+  "cApi": {
+    "api": {
+      "relativePath": ".code-intelligence/fuzz_targets/asmap_ci.cpp"
+    }
+  }
+}

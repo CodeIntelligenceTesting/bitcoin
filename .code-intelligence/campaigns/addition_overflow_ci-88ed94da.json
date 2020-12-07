@@ -1,0 +1,23 @@
+{
+  "name": "addition_overflow_ci-88ed94da",
+  "displayName": "addition_overflow_ci",
+  "maxRunTime": "1800s",
+  "fuzzTargets": [
+    "addition_overflow_ci-0855634a"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

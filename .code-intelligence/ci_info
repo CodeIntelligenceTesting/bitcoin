@@ -1,0 +1,17 @@
+{
+  "name": "projects/bitcoin-new-docker-7adc2b81",
+  "displayName": "bitcoin-new-docker",
+  "buildScriptContent": "#!/bin/sh\nset -ex\n./autogen.sh\n./configure --enable-fuzz --disable-asm --with-asm=no\n#make clean\n#make V=1 -j4\ncd src \u0026\u0026 make -j4 V=1 test/fuzz/message",
+  "details": {
+
+  },
+  "projectEnvironment": {
+    "dockerBuild": {
+      "name": "bitcoin-debian"
+    },
+    "dockerRun": {
+      "name": "bitcoin-debian"
+    }
+  },
+  "testScriptContent": "# The build and test script can be something like:\n#    mkdir build\n#    cd build\n#    cmake .. # Here, you can place your CMake options\n#    make -j$(nproc)\n#    ctest -j$(nproc)\n# Note: The build script will be executed from the project's root directory."
+}
