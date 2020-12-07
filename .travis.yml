@@ -26,6 +26,7 @@ cache:
 stages:
   - lint
   - test
+  - ci-fuzz
 env:
   global:
     - CI_RETRY_EXE="travis_retry"
@@ -64,3 +65,71 @@ jobs:
         - set -o errexit; source ./ci/lint/05_before_script.sh
       script:
         - set -o errexit; source ./ci/lint/06_script.sh
+    - stage: ci-fuzz
+      name: 'ci-fuzz'
+      env:
+        // Display name of the project.
+        PROJECT = 'bitcoin-new-docker'
+        // Display name of the campaign to be run.
+        CAMPAIGN = 'asmap_ci'
+        // Address of the fuzzing service
+        FUZZING_SERVICE_URL = 'grpc-api.code-intelligence.com:443'
+        // Address of the fuzzing web interface
+        WEB_APP_URL = 'app.code-intelligence.com'
+
+        // Credentials for accessing the fuzzing service
+        CIFUZZ_CREDS = credentials('CIFUZZ_CREDS')
+        CICTL = 'cictl-2.14.1-linux';
+        CICTL_VERSION = '2.14.1';
+        CICTL_SHA256SUM = 'd1f3644e94b78e2cbf1a4317e4a0ad57f9cc62bb68be898ced77ec3db6cc2a83';
+        CICTL_URL = 'https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-2.14.1-linux';
+        FINDINGS_TYPE = 'CRASH';
+        TIMEOUT = '900'
+        # Email that will receive reports if any finding is encountered.
+        CI_FUZZING_REPORT_EMAIL_RECIPIENT: schrewe@code-intelligence.com
+      cache:
+      language:
+      install:
+        - sh '''
+              set -eu
+
+              # Download cictl if it doesn't exist already
+              if [ ! -f "${CICTL}" ]; then
+                wget "${CICTL_URL}" -O "${CICTL}"
+              fi
+
+              # Verify the checksum
+              echo "${CICTL_SHA256SUM} "${CICTL}"" | sha256sum --check
+
+              # Make it executable
+              chmod +x "${CICTL}"
+            '''
+      before_script:
+        - sh '''
+              set -eu
+
+              # Log in
+              ./${CICTL} login -u "${CIFUZZ_CREDS_USR}" -p "${CIFUZZ_CREDS_PSW}"
+
+              # Start Fuzzing
+              LOG_FILE="start-$(basename "asmap_ci").logs"
+              ./${CICTL} start_fuzzing                 --daemon_listen_address="${FUZZING_SERVICE_URL}"                 --project_name="${PROJECT}"                 --campaign_name="${CAMPAIGN}"                 --git_branch="${GIT_BRANCH#*/}"                 | tee "${LOG_FILE}"
+            '''
+      script:
+        - sh '''
+              set -eu
+
+              # Get the name of the started campaign run from the logs
+              LOG_FILE="start-$(basename "asmap_ci").logs"
+              LINE=$(tail -1 "${LOG_FILE}")
+              CAMPAIGN_RUN=${LINE#*"ID: "}
+
+              # Monitor Fuzzing
+              ./${CICTL} monitor_campaign_run \
+                --daemon_listen_address="${FUZZING_SERVICE_URL}" \
+                --dashboard_address="${WEB_APP_URL}" \
+                --project_name="${PROJECT}" \
+                --campaign_run_name="${CAMPAIGN_RUN}" \
+                --duration="${TIMEOUT}" \
+                --findings_type="${FINDINGS_TYPE}"
+            '''
