@@ -1,13 +1,14 @@
-#// Display name of the project.
+#! /bin/sh
+# Display name of the project.
 PROJECT = 'bitcoin-new-docker'    
-#// Display name of the campaign to be run.
+# Display name of the campaign to be run.
 CAMPAIGN = 'asmap_ci'
-#// Address of the fuzzing service
+# Address of the fuzzing service
 FUZZING_SERVICE_URL = 'grpc-api.code-intelligence.com:443'
-#// Address of the fuzzing web interface
+# Address of the fuzzing web interface
 WEB_APP_URL = 'app.code-intelligence.com'
 
-#// Credentials for accessing the fuzzing service
+# Credentials for accessing the fuzzing service
 CIFUZZ_CREDS = credentials('CIFUZZ_CREDS')
 CICTL = 'cictl-2.14.1-linux';
 CICTL_VERSION = '2.14.1';
