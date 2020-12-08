@@ -1,7 +1,7 @@
 {
   "name": "base_encode_decode-1187f3a8",
   "displayName": "base_encode_decode",
-  "maxRunTime": "1800s",
+  "maxRunTime": "300s",
   "fuzzTargets": [
     "base_encode_decode-0f09e0ac"
   ],
