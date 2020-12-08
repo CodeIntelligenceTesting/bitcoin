@@ -68,12 +68,5 @@ jobs:
     - stage: ci-fuzz
       name: 'ci-fuzz'
       env:
-        - set -o errexit; source ./ci/ci-fuzz/set_env.sh
-      cache:
-      language:
-      install:
-        - set -o errexit; source ./ci/ci-fuzz/download_ci-fuzz.sh
-      before_script:
-        - set -o errexit; source ./ci/ci-fuzz/build_fuzz_test.sh
       script:
-        - set -o errexit; source ./ci/ci-fuzz/start_fuzz_test.sh
+        - set -o errexit; source ./ci/ci-fuzz/complete.sh
