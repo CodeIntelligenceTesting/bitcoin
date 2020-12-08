@@ -1,7 +1,7 @@
 {
   "name": "asmap_ci-f3209649",
   "displayName": "asmap_ci",
-  "maxRunTime": "300s",
+  "maxRunTime": "1800s",
   "fuzzTargets": [
     "asmap_ci-12b06336"
   ],

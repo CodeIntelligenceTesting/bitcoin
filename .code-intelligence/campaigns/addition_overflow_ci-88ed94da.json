@@ -1,7 +1,7 @@
 {
   "name": "addition_overflow_ci-88ed94da",
   "displayName": "addition_overflow_ci",
-  "maxRunTime": "300s",
+  "maxRunTime": "1800s",
   "fuzzTargets": [
     "addition_overflow_ci-0855634a"
   ],
