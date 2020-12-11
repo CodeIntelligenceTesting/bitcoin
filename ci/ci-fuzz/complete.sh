@@ -20,6 +20,18 @@ TIMEOUT='900'
 CI_FUZZING_REPORT_EMAIL_RECIPIENT='schrewe@code-intelligence.com'
 GIT_BRANCH='master'
 
+export PROJECT
+export CAMPAIGN
+export FUZZING_SERVICE_URL
+export ICTL
+export CICTL_VERSION
+export CICTL_SHA256SUM
+export CICTL_URL
+export FINDINGS_TYPE
+export TIMEOUT
+export GIT_BRANCH
+
+date
 
 set -eu
 # Download cictl if it doesn't exist already
@@ -31,6 +43,8 @@ echo "${CICTL_SHA256SUM} "${CICTL}"" | sha256sum --check
 
 # Make it executable
 chmod +x "${CICTL}"
+
+date
 
 set -eu
 # Log in
@@ -45,6 +59,9 @@ set -eu
 LOG_FILE="start-$(basename "asmap_ci").logs"
 LINE=$(tail -1 "${LOG_FILE}")
 CAMPAIGN_RUN=${LINE#*"ID: "}
+
+date
+sleep 30
 
 # Monitor Fuzzing
 ./${CICTL} monitor_campaign_run \
