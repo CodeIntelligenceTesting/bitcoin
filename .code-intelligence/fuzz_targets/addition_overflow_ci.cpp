@@ -18,20 +18,6 @@
 #define HAVE_BUILTIN_ADD_OVERFLOW
 #endif
 
-// This function is used by libFuzzer
-extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size)
-{
-    const std::vector<uint8_t> input(data, data + size);
-    test_one_input(input);
-    return 0;
-}
-
-// This function is used by libFuzzer
-extern "C" int LLVMFuzzerInitialize(int* argc, char*** argv)
-{
-    initialize();
-    return 0;
-}
 
 namespace {
 template <typename T>
