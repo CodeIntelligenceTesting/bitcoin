@@ -1,0 +1,23 @@
+{
+  "name": "key_io-05c1a7e3",
+  "displayName": "key_io",
+  "maxRunTime": "1800s",
+  "fuzzTargets": [
+    "key_io-d980f386"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "name": "addition_overflow_ci-0855634a",
-  "displayName": "addition_overflow_ci",
+  "name": "key_io-d980f386",
+  "displayName": "key_io",
   "buildFlags": [
     "-std=c++17",
     "-DHAVE_CONFIG_H",
@@ -16,9 +16,9 @@
     "-DBOOST_AC_USE_STD_ATOMIC",
     "-pthread",
     "-I/usr/include",
-    "-I./leveldb/include",
-    "-I./leveldb/helpers/memenv",
-    "-I./univalue/include",
+    "-Isrc/leveldb/include",
+    "-Isrc/leveldb/helpers/memenv",
+    "-Isrc/univalue/include",
     "-pthread",
     "-DHAVE_BUILD_INFO",
     "-D__STDC_FORMAT_MACROS",
@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/addition_overflow_ci.cpp"
+      "relativePath": ".code-intelligence/fuzz_targets/key_io.cpp"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
-  "name": "addition_overflow_ci-0855634a",
-  "displayName": "addition_overflow_ci",
+  "name": "crypto_aes256-a2c151f5",
+  "displayName": "crypto_aes256",
   "buildFlags": [
     "-std=c++17",
     "-DHAVE_CONFIG_H",
@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/addition_overflow_ci.cpp"
+      "relativePath": ".code-intelligence/fuzz_targets/crypto_aes256.cpp"
     }
   }
 }

@@ -1,24 +1,24 @@
 {
-  "name": "addition_overflow_ci-0855634a",
-  "displayName": "addition_overflow_ci",
+  "name": "block-9fa7f7be",
+  "displayName": "block",
   "buildFlags": [
     "-std=c++17",
     "-DHAVE_CONFIG_H",
     "-I.",
     "-Isrc",
-    "-I../src/config",
+    "-Isrc/config",
     "-DABORT_ON_FAILED_ASSUME",
     "-U_FORTIFY_SOURCE",
     "-D_FORTIFY_SOURCE=2",
     "-I.",
-    "-I./secp256k1/include",
+    "-Isrc/secp256k1/include",
     "-DBOOST_SP_USE_STD_ATOMIC",
     "-DBOOST_AC_USE_STD_ATOMIC",
     "-pthread",
     "-I/usr/include",
-    "-I./leveldb/include",
-    "-I./leveldb/helpers/memenv",
-    "-I./univalue/include",
+    "-Isrc/leveldb/include",
+    "-Isrc/leveldb/helpers/memenv",
+    "-Isrc/univalue/include",
     "-pthread",
     "-DHAVE_BUILD_INFO",
     "-D__STDC_FORMAT_MACROS",
@@ -43,7 +43,7 @@
     "src/libbitcoin_server.a",
     "src/libbitcoin_common.a",
     "src/libbitcoin_util.a",
-    "src/lib.a",
+    "src/libtest_util.a",
     "src/libbitcoin_server.a",
     "src/libbitcoin_common.a",
     "src/crypto/libbitcoin_crypto_base.a",
@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/addition_overflow_ci.cpp"
+      "relativePath": ".code-intelligence/fuzz_targets/block.cpp"
     }
   }
 }

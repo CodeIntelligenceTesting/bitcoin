@@ -43,7 +43,7 @@
     "src/libbitcoin_server.a",
     "src/libbitcoin_common.a",
     "src/libbitcoin_util.a",
-    "src/libtest_util.a",
+    "src/lib.a",
     "src/libbitcoin_server.a",
     "src/libbitcoin_common.a",
     "src/crypto/libbitcoin_crypto_base.a",
