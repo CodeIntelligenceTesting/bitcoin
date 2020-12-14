@@ -20,16 +20,16 @@ TIMEOUT='900'
 CI_FUZZING_REPORT_EMAIL_RECIPIENT='schrewe@code-intelligence.com'
 GIT_BRANCH='master'
 
-export PROJECT
-export CAMPAIGN
-export FUZZING_SERVICE_URL
-export ICTL
-export CICTL_VERSION
-export CICTL_SHA256SUM
-export CICTL_URL
-export FINDINGS_TYPE
-export TIMEOUT
-export GIT_BRANCH
+# export PROJECT
+# export CAMPAIGN
+# export FUZZING_SERVICE_URL
+# export ICTL
+# export CICTL_VERSION
+# export CICTL_SHA256SUM
+# export CICTL_URL
+# export FINDINGS_TYPE
+# export TIMEOUT
+# export GIT_BRANCH
 
 date
 
