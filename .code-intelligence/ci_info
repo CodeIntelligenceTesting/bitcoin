@@ -1,7 +1,7 @@
 {
   "name": "projects/bitcoin-new-docker-7adc2b81",
   "displayName": "bitcoin-new-docker",
-  "buildScriptContent": "#!/bin/sh\nset -ex\n./autogen.sh\n./configure --enable-fuzz --disable-asm --with-asm=no\n#make clean\n#make V=1 -j4\ncd src \u0026\u0026 make -j4 V=1 test/fuzz/message \u0026\u0026 make -j4 V=1 test/fuzz/block \u0026\u0026 cd ..",
+  "buildScriptContent": "#!/bin/sh\nset -ex\n./autogen.sh\n./configure --enable-fuzz --disable-asm --with-asm=no\n#make clean\n#make V=1 -j$(nproc)\ncd src \u0026\u0026 make -j$(nproc) V=1 test/fuzz/message \u0026\u0026 make -j$(nproc) V=1 test/fuzz/block \u0026\u0026 cd ..",
   "details": {
 
   },
