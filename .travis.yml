@@ -68,5 +68,9 @@ jobs:
     - stage: ci-fuzz
       name: 'ci-fuzz'
       env:
+      before_install: skip
+      install: skip
+      before_script: skip
       script:
         - set -o errexit; source ./ci/ci-fuzz/complete.sh
+      after_script: skip
