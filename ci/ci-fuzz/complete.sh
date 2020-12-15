@@ -1,4 +1,5 @@
 #!/bin/sh
+export LC_ALL=C
 # Display name of the project.
 PROJECT='bitcoin-new-docker'
 # Display name of the campaign to be run.
@@ -17,7 +18,7 @@ CICTL_URL='https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/ci
 FINDINGS_TYPE='CRASH';
 TIMEOUT='900'
 #Email that will receive reports if any finding is encountered.
-CI_FUZZING_REPORT_EMAIL_RECIPIENT='schrewe@code-intelligence.com'
+#CI_FUZZING_REPORT_EMAIL_RECIPIENT='schrewe@code-intelligence.com'
 GIT_BRANCH='master'
 
 export PROJECT
