@@ -75,4 +75,4 @@ sleep 30
 --duration="${TIMEOUT}" \
 --findings_type="${FINDINGS_TYPE}"
 
-EXIT 0
+exit 0
