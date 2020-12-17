@@ -5,9 +5,9 @@ PROJECT='bitcoin-new-docker'
 # Display name of the campaign to be run.
 CAMPAIGN='asmap_ci'
 # Address of the fuzzing service
-FUZZING_SERVICE_URL='grpc-api.code-intelligence.com:443'
+FUZZING_SERVICE_URL='grpc-api.demo.code-intelligence.com:443'
 # Address of the fuzzing web interface
-WEB_APP_URL='app.code-intelligence.com'
+WEB_APP_URL='app.demo.code-intelligence.com'
 
 # Credentials for accessing the fuzzing service
 #CIFUZZ_CREDS=credentials('CIFUZZ_CREDS')
