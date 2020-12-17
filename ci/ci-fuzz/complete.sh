@@ -1,7 +1,7 @@
 #!/bin/sh
 export LC_ALL=C
 # Display name of the project.
-PROJECT='bitcoin-new-docker'
+PROJECT='bitcoin'
 # Display name of the campaign to be run.
 CAMPAIGN='asmap_ci'
 # Address of the fuzzing service
