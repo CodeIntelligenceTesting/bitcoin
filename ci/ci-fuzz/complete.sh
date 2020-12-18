@@ -16,7 +16,7 @@ CICTL_VERSION='2.16.3-389-gf8e52f113';
 CICTL_SHA256SUM='e89234fe8a5c7c7b336815f975de7faf76a3420a40c51a7b8f396372f89ab9c1';
 CICTL_URL='https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-2.16.3-389-gf8e52f113-linux';
 FINDINGS_TYPE='CRASH';
-TIMEOUT='900'
+TIMEOUT='90'
 #Email that will receive reports if any finding is encountered.
 #CI_FUZZING_REPORT_EMAIL_RECIPIENT='schrewe@code-intelligence.com'
 GIT_BRANCH='master'
