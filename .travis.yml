@@ -65,12 +65,21 @@ jobs:
         - set -o errexit; source ./ci/lint/05_before_script.sh
       script:
         - set -o errexit; source ./ci/lint/06_script.sh
-    - stage: ci-fuzz
-      name: 'ci-fuzz'
+    - stage: asmap-fuzzer
+      name: 'asmap-fuzzer'
       env:
       before_install: skip
       install: skip
       before_script: skip
       script:
-        - ./ci/ci-fuzz/complete.sh
+        - ./ci/ci-fuzz/asmap.sh
+      after_script: skip
+    - stage: key_io-fuzzer
+      name: 'key_io-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/key_io.sh
       after_script: skip
