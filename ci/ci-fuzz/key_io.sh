@@ -16,7 +16,7 @@ CICTL_VERSION='2.16.3-389-gf8e52f113';
 CICTL_SHA256SUM='e89234fe8a5c7c7b336815f975de7faf76a3420a40c51a7b8f396372f89ab9c1';
 CICTL_URL='https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-2.16.3-389-gf8e52f113-linux';
 FINDINGS_TYPE='CRASH';
-TIMEOUT='90'
+TIMEOUT='180'
 #Email that will receive reports if any finding is encountered.
 #CI_FUZZING_REPORT_EMAIL_RECIPIENT='schrewe@code-intelligence.com'
 GIT_BRANCH='master'
@@ -52,14 +52,14 @@ set -eu
 #./${CICTL} login -u "${CIFUZZ_CREDS_USR}" -p "${CIFUZZ_CREDS_PSW}"
 ./${CICTL} login -t "${CIFUZZ_TOKEN}"
 # Start Fuzzing
-LOG_FILE="start-$(basename "asmap_ci").logs"
+LOG_FILE="start-$(basename "key_io").logs"
 
 date
 ./${CICTL} start_fuzzing --daemon_listen_address="${FUZZING_SERVICE_URL}" --project_name="${PROJECT}" --campaign_name="${CAMPAIGN}" --git_branch="${GIT_BRANCH#*/}" | tee "${LOG_FILE}"
 
 set -eu
 # Get the name of the started campaign run from the logs
-LOG_FILE="start-$(basename "asmap_ci").logs"
+LOG_FILE="start-$(basename "key_io").logs"
 LINE=$(grep "display_name:" "${LOG_FILE}")
 CAMPAIGN_RUN=${LINE#*"display_name: "}
 
