@@ -72,5 +72,5 @@ jobs:
       install: skip
       before_script: skip
       script:
-        - set -o errexit; source ./ci/ci-fuzz/complete.sh
+        - ./ci/ci-fuzz/complete.sh
       after_script: skip
