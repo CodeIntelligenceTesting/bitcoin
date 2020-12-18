@@ -83,7 +83,7 @@ jobs:
       script:
         - ./ci/ci-fuzz/key_io.sh
       after_script: skip
-      - stage: addition_overflow-fuzzer
+    - stage: addition_overflow-fuzzer
       name: 'addition_overflow-fuzzer'
       env:
       before_install: skip
@@ -92,7 +92,7 @@ jobs:
       script:
         - ./ci/ci-fuzz/addition_overflow.sh
       after_script: skip
-      - stage: base_encode_decode-fuzzer
+    - stage: base_encode_decode-fuzzer
       name: 'base_encode_decode-fuzzer'
       env:
       before_install: skip
@@ -101,7 +101,7 @@ jobs:
       script:
         - ./ci/ci-fuzz/base_encode_decode.sh
       after_script: skip
-      - stage: block-fuzzer
+    - stage: block-fuzzer
       name: 'block-fuzzer'
       env:
       before_install: skip
@@ -110,7 +110,7 @@ jobs:
       script:
         - ./ci/ci-fuzz/block.sh
       after_script: skip
-      - stage: crypto_aes256-fuzzer
+    - stage: crypto_aes256-fuzzer
       name: 'crypto_aes256-fuzzer'
       env:
       before_install: skip
