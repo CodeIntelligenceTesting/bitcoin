@@ -2,7 +2,6 @@
   "name": "asmap_ci-12b06336",
   "displayName": "asmap_ci",
   "buildFlags": [
-    "-v",
     "-O4",
     "-Isrc",
     "-Isrc/crc32c/include",
