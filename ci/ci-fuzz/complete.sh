@@ -74,5 +74,3 @@ sleep 30
 --campaign_run_name="${CAMPAIGN_RUN}" \
 --duration="${TIMEOUT}" \
 --findings_type="${FINDINGS_TYPE}"
-
-exit 0
