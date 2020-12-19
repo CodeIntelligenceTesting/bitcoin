@@ -68,6 +68,7 @@
     "-lpthread",
     "-lboost_system",
     "-lboost_filesystem",
+    "-v",
     "-O4",
     "-Isrc",
     "-Isrc/crc32c/include",
