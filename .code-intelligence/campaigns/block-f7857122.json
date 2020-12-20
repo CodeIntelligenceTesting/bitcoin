@@ -1,7 +1,7 @@
 {
   "name": "block-f7857122",
   "displayName": "block",
-  "maxRunTime": "1800s",
+  "maxRunTime": "180s",
   "fuzzTargets": [
     "block-9fa7f7be"
   ],
