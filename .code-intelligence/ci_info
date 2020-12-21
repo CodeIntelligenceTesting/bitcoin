@@ -7,10 +7,10 @@
   },
   "projectEnvironment": {
     "dockerBuild": {
-      "name": "schrewecodeintelligence/cifuzz:bitcoin-debian-unstable"
+      "name": "gcr.io/code-intelligence/bitcoin-builder"
     },
     "dockerRun": {
-      "name": "schrewecodeintelligence/cifuzz:bitcoin-debian-unstable"
+      "name": "gcr.io/code-intelligence/bitcoin-builder"
     }
   },
   "testScriptContent": "# The build and test script can be something like:\n#    mkdir build\n#    cd build\n#    cmake .. # Here, you can place your CMake options\n#    make -j$(nproc)\n#    ctest -j$(nproc)\n# Note: The build script will be executed from the project's root directory."
