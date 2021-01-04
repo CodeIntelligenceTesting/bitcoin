@@ -32,8 +32,6 @@ export FINDINGS_TYPE
 export TIMEOUT
 export GIT_BRANCH
 
-date
-
 set -eu
 # Download cictl if it doesn't exist already
 if [ ! -f "${CICTL}" ]; then
@@ -45,8 +43,6 @@ echo "${CICTL_SHA256SUM} ${CICTL}" | sha256sum --check
 # Make it executable
 chmod +x "${CICTL}"
 
-date
-
 set -eu
 # Log in
 #./${CICTL} login -u "${CIFUZZ_CREDS_USR}" -p "${CIFUZZ_CREDS_PSW}"
@@ -54,7 +50,6 @@ set -eu
 # Start Fuzzing
 LOG_FILE="start-$(basename "asmap_ci").logs"
 
-date
 ./${CICTL} start_fuzzing --daemon_listen_address="${FUZZING_SERVICE_URL}" --project_name="${PROJECT}" --campaign_name="${CAMPAIGN}" --git_branch="${GIT_BRANCH#*/}" | tee "${LOG_FILE}"
 
 set -eu
@@ -63,8 +58,6 @@ LOG_FILE="start-$(basename "asmap_ci").logs"
 LINE=$(grep "display_name:" "${LOG_FILE}")
 CAMPAIGN_RUN=${LINE#*"display_name: "}
 
-date
-sleep 30
 
 # Monitor Fuzzing
 ./${CICTL} monitor_campaign_run \
