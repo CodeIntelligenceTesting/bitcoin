@@ -1,5 +1,5 @@
 {
-  "name": "addition_overflow_ci-0855634a",
+  "name": "addition_overflow_ci",
   "displayName": "addition_overflow_ci",
   "buildFlags": [
     "-std=c++17",

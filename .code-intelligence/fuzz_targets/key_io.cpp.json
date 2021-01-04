@@ -1,5 +1,5 @@
 {
-  "name": "key_io-d980f386",
+  "name": "key_io",
   "displayName": "key_io",
   "buildFlags": [
     "-std=c++17",

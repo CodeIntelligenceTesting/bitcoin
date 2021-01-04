@@ -1,9 +1,9 @@
 {
-  "name": "key_io-05c1a7e3",
-  "displayName": "key_io",
+  "name": "base_encode_decode",
+  "displayName": "base_encode_decode",
   "maxRunTime": "180s",
   "fuzzTargets": [
-    "key_io-d980f386"
+    "base_encode_decode"
   ],
   "fuzzerRunConfigurations": [
     {

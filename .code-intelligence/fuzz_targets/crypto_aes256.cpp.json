@@ -1,5 +1,5 @@
 {
-  "name": "crypto_aes256-a2c151f5",
+  "name": "crypto_aes256",
   "displayName": "crypto_aes256",
   "buildFlags": [
     "-std=c++17",

@@ -1,11 +1,16 @@
 {
-  "name": "asmap_ci-f3209649",
-  "displayName": "asmap_ci",
+  "name": "block",
+  "displayName": "block",
   "maxRunTime": "180s",
   "fuzzTargets": [
-    "asmap_ci-12b06336"
+    "block"
   ],
   "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
     {
       "engine": "LIBFUZZER",
       "sanitizer": "ADDRESS",

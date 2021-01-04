@@ -1,9 +1,9 @@
 {
-  "name": "addition_overflow_ci-88ed94da",
-  "displayName": "addition_overflow_ci",
+  "name": "asmap_ci",
+  "displayName": "asmap_ci",
   "maxRunTime": "180s",
   "fuzzTargets": [
-    "addition_overflow_ci-0855634a"
+    "asmap_ci"
   ],
   "fuzzerRunConfigurations": [
     {

@@ -1,5 +1,5 @@
 {
-  "name": "base_encode_decode-0f09e0ac",
+  "name": "base_encode_decode",
   "displayName": "base_encode_decode",
   "buildFlags": [
     "-std=c++17",

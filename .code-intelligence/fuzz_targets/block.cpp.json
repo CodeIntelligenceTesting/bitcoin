@@ -1,5 +1,5 @@
 {
-  "name": "block-9fa7f7be",
+  "name": "block",
   "displayName": "block",
   "buildFlags": [
     "-std=c++17",
