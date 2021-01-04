@@ -1,0 +1,23 @@
+{
+  "name": "bloom_filter",
+  "displayName": "bloom_filter",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "bloom_filter"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

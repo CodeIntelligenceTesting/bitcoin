@@ -1,0 +1,23 @@
+{
+  "name": "locale",
+  "displayName": "locale",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "locale"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

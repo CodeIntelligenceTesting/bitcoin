@@ -1,0 +1,23 @@
+{
+  "name": "addrdb",
+  "displayName": "addrdb",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "addrdb"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

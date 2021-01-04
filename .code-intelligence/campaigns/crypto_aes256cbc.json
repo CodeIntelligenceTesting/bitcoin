@@ -1,0 +1,23 @@
+{
+  "name": "crypto_aes256cbc",
+  "displayName": "crypto_aes256cbc",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "crypto_aes256cbc"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

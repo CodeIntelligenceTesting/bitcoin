@@ -1,0 +1,23 @@
+{
+  "name": "crypto_chacha20",
+  "displayName": "crypto_chacha20",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "crypto_chacha20"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

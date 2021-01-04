@@ -1,0 +1,23 @@
+{
+  "name": "golomb_rice",
+  "displayName": "golomb_rice",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "golomb_rice"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

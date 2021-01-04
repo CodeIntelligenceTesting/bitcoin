@@ -1,0 +1,23 @@
+{
+  "name": "script_sigcache",
+  "displayName": "script_sigcache",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "script_sigcache"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

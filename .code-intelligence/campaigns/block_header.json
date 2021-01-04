@@ -1,0 +1,23 @@
+{
+  "name": "block_header",
+  "displayName": "block_header",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "block_header"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

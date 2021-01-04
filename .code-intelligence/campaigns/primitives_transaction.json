@@ -1,0 +1,23 @@
+{
+  "name": "primitives_transaction",
+  "displayName": "primitives_transaction",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "primitives_transaction"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

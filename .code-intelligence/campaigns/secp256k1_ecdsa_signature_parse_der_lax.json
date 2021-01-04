@@ -1,0 +1,23 @@
+{
+  "name": "secp256k1_ecdsa_signature_parse_der_lax",
+  "displayName": "secp256k1_ecdsa_signature_parse_der_lax",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "secp256k1_ecdsa_signature_parse_der_lax"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

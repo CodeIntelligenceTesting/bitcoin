@@ -1,0 +1,23 @@
+{
+  "name": "fee_rate",
+  "displayName": "fee_rate",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "fee_rate"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

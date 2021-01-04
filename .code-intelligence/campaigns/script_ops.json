@@ -1,0 +1,23 @@
+{
+  "name": "script_ops",
+  "displayName": "script_ops",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "script_ops"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

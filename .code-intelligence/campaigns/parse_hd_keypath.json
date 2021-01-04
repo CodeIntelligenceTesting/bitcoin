@@ -1,0 +1,23 @@
+{
+  "name": "parse_hd_keypath",
+  "displayName": "parse_hd_keypath",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "parse_hd_keypath"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

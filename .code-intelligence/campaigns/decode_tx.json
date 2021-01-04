@@ -1,0 +1,23 @@
+{
+  "name": "decode_tx",
+  "displayName": "decode_tx",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "decode_tx"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

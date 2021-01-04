@@ -1,0 +1,23 @@
+{
+  "name": "script_bitcoin_consensus",
+  "displayName": "script_bitcoin_consensus",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "script_bitcoin_consensus"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

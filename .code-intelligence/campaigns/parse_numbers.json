@@ -1,0 +1,23 @@
+{
+  "name": "parse_numbers",
+  "displayName": "parse_numbers",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "parse_numbers"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

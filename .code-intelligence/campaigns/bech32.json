@@ -1,0 +1,23 @@
+{
+  "name": "bech32",
+  "displayName": "bech32",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "bech32"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

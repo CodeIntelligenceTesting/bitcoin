@@ -1,0 +1,23 @@
+{
+  "name": "p2p_transport_deserializer",
+  "displayName": "p2p_transport_deserializer",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "p2p_transport_deserializer"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

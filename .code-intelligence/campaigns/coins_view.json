@@ -1,0 +1,23 @@
+{
+  "name": "coins_view",
+  "displayName": "coins_view",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "coins_view"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

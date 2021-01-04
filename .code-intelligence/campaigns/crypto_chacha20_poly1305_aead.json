@@ -1,0 +1,23 @@
+{
+  "name": "crypto_chacha20_poly1305_aead",
+  "displayName": "crypto_chacha20_poly1305_aead",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "crypto_chacha20_poly1305_aead"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

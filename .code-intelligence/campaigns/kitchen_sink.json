@@ -1,0 +1,23 @@
+{
+  "name": "kitchen_sink",
+  "displayName": "kitchen_sink",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "kitchen_sink"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

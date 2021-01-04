@@ -1,0 +1,23 @@
+{
+  "name": "signature_checker",
+  "displayName": "signature_checker",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "signature_checker"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

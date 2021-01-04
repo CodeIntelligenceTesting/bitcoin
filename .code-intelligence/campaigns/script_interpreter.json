@@ -1,0 +1,23 @@
+{
+  "name": "script_interpreter",
+  "displayName": "script_interpreter",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "script_interpreter"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "script_assets_test_minimizer",
+  "displayName": "script_assets_test_minimizer",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "script_assets_test_minimizer"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

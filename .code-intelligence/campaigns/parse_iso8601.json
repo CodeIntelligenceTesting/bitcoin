@@ -1,0 +1,23 @@
+{
+  "name": "parse_iso8601",
+  "displayName": "parse_iso8601",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "parse_iso8601"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

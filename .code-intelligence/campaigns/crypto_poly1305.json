@@ -1,0 +1,23 @@
+{
+  "name": "crypto_poly1305",
+  "displayName": "crypto_poly1305",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "crypto_poly1305"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

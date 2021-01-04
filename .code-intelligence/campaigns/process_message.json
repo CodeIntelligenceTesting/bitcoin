@@ -1,0 +1,23 @@
+{
+  "name": "process_message",
+  "displayName": "process_message",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "process_message"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

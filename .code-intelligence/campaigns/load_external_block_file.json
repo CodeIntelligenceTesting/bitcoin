@@ -1,0 +1,23 @@
+{
+  "name": "load_external_block_file",
+  "displayName": "load_external_block_file",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "load_external_block_file"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

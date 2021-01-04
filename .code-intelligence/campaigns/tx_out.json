@@ -1,0 +1,23 @@
+{
+  "name": "tx_out",
+  "displayName": "tx_out",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "tx_out"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

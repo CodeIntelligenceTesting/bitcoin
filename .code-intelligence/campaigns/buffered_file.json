@@ -1,0 +1,23 @@
+{
+  "name": "buffered_file",
+  "displayName": "buffered_file",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "buffered_file"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

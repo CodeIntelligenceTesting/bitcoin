@@ -1,0 +1,23 @@
+{
+  "name": "multiplication_overflow",
+  "displayName": "multiplication_overflow",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "multiplication_overflow"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

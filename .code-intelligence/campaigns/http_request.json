@@ -1,0 +1,23 @@
+{
+  "name": "http_request",
+  "displayName": "http_request",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "http_request"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

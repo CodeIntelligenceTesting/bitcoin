@@ -1,0 +1,23 @@
+{
+  "name": "crypto_hkdf_hmac_sha256_l32",
+  "displayName": "crypto_hkdf_hmac_sha256_l32",
+  "maxRunTime": "180s",
+  "fuzzTargets": [
+    "crypto_hkdf_hmac_sha256_l32"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}
