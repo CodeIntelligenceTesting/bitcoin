@@ -17,5 +17,5 @@ for file in "$DIRECTORY"/*.cpp; do
     jq -j --arg t_name $test_name --arg api $api  '{name: $t_name,displayName: $t_name,buildFlags: .buildFlags,cApi: {api: {relativePath: $api}}}' buildflags.json > $json_file_name
     
     #create config files for campaigns
-    jq -j --arg t_name $test_name '{name: $t_name,displayName: $t_name,maxRunTime: .maxRunTime,fuzzTargets: $t_name,fuzzerRunConfigurations: .fuzzerRunConfigurations}' ../campaigns/options.json > $campaign_file_name
+    jq -j --arg t_name $test_name '{name: $t_name,displayName: $t_name,maxRunTime: .maxRunTime,fuzzTargets: [$t_name],fuzzerRunConfigurations: .fuzzerRunConfigurations}' ../campaigns/options.json > $campaign_file_name
 done
