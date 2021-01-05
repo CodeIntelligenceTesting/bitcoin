@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/parse_numbers.cpp"
+      "relativePath": "src/test/fuzz/parse_numbers.cpp"
     }
   }
 }

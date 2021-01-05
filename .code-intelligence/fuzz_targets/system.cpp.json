@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/system.cpp"
+      "relativePath": "src/test/fuzz/system.cpp"
     }
   }
 }

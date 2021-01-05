@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/base_encode_decode.cpp"
+      "relativePath": "src/test/fuzz/base_encode_decode.cpp"
     }
   }
 }

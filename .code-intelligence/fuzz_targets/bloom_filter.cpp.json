@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/bloom_filter.cpp"
+      "relativePath": "src/test/fuzz/bloom_filter.cpp"
     }
   }
 }

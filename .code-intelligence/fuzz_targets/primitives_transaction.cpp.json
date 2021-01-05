@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/primitives_transaction.cpp"
+      "relativePath": "src/test/fuzz/primitives_transaction.cpp"
     }
   }
 }

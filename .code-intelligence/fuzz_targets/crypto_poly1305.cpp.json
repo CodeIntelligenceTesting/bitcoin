@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/crypto_poly1305.cpp"
+      "relativePath": "src/test/fuzz/crypto_poly1305.cpp"
     }
   }
 }

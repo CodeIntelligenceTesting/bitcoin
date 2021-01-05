@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/signature_checker.cpp"
+      "relativePath": "src/test/fuzz/signature_checker.cpp"
     }
   }
 }

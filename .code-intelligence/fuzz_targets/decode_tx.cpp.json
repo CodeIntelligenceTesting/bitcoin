@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/decode_tx.cpp"
+      "relativePath": "src/test/fuzz/decode_tx.cpp"
     }
   }
 }

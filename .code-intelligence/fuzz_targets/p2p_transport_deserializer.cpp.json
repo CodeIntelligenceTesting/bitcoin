@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/p2p_transport_deserializer.cpp"
+      "relativePath": "src/test/fuzz/p2p_transport_deserializer.cpp"
     }
   }
 }

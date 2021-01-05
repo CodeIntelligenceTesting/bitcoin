@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/netaddress.cpp"
+      "relativePath": "src/test/fuzz/netaddress.cpp"
     }
   }
 }

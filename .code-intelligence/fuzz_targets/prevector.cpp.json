@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/prevector.cpp"
+      "relativePath": "src/test/fuzz/prevector.cpp"
     }
   }
 }

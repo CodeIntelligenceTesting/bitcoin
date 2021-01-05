@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/secp256k1_ec_seckey_import_export_der.cpp"
+      "relativePath": "src/test/fuzz/secp256k1_ec_seckey_import_export_der.cpp"
     }
   }
 }

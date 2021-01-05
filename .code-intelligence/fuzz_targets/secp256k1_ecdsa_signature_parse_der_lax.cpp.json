@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/secp256k1_ecdsa_signature_parse_der_lax.cpp"
+      "relativePath": "src/test/fuzz/secp256k1_ecdsa_signature_parse_der_lax.cpp"
     }
   }
 }

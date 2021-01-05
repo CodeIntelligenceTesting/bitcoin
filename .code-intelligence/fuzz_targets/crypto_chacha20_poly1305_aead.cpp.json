@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/crypto_chacha20_poly1305_aead.cpp"
+      "relativePath": "src/test/fuzz/crypto_chacha20_poly1305_aead.cpp"
     }
   }
 }

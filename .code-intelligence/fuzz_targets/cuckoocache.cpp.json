@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/cuckoocache.cpp"
+      "relativePath": "src/test/fuzz/cuckoocache.cpp"
     }
   }
 }

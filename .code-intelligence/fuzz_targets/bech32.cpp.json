@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/bech32.cpp"
+      "relativePath": "src/test/fuzz/bech32.cpp"
     }
   }
 }

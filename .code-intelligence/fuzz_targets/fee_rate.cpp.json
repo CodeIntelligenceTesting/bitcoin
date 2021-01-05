@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": ".code-intelligence/fuzz_targets/fee_rate.cpp"
+      "relativePath": "src/test/fuzz/fee_rate.cpp"
     }
   }
 }
