@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/script_bitcoin_consensus.cpp"
+      "relativePath": "./src/test/fuzz/script_bitcoin_consensus.cpp"
     }
   }
 }

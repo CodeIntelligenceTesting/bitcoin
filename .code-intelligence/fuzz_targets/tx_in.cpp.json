@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/tx_in.cpp"
+      "relativePath": "./src/test/fuzz/tx_in.cpp"
     }
   }
 }

@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/buffered_file.cpp"
+      "relativePath": "./src/test/fuzz/buffered_file.cpp"
     }
   }
 }

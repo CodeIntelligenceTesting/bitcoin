@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/crypto_hkdf_hmac_sha256_l32.cpp"
+      "relativePath": "./src/test/fuzz/crypto_hkdf_hmac_sha256_l32.cpp"
     }
   }
 }

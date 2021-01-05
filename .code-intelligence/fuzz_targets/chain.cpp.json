@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/chain.cpp"
+      "relativePath": "./src/test/fuzz/chain.cpp"
     }
   }
 }

@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/crypto_aes256.cpp"
+      "relativePath": "./src/test/fuzz/crypto_aes256.cpp"
     }
   }
 }

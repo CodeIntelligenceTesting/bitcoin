@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/parse_iso8601.cpp"
+      "relativePath": "./src/test/fuzz/parse_iso8601.cpp"
     }
   }
 }

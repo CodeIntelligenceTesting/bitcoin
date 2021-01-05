@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/policy_estimator_io.cpp"
+      "relativePath": "./src/test/fuzz/policy_estimator_io.cpp"
     }
   }
 }

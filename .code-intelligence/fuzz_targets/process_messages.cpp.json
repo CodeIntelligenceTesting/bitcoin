@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/process_messages.cpp"
+      "relativePath": "./src/test/fuzz/process_messages.cpp"
     }
   }
 }

@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/key_io.cpp"
+      "relativePath": "./src/test/fuzz/key_io.cpp"
     }
   }
 }

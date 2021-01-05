@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/script_descriptor_cache.cpp"
+      "relativePath": "./src/test/fuzz/script_descriptor_cache.cpp"
     }
   }
 }

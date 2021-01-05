@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/coins_view.cpp"
+      "relativePath": "./src/test/fuzz/coins_view.cpp"
     }
   }
 }

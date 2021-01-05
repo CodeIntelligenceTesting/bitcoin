@@ -97,7 +97,7 @@
   ],
   "cApi": {
     "api": {
-      "relativePath": "src/test/fuzz/script_sign.cpp"
+      "relativePath": "./src/test/fuzz/script_sign.cpp"
     }
   }
 }
