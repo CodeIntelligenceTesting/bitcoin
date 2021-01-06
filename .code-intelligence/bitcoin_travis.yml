@@ -26,7 +26,6 @@ cache:
 stages:
   - lint
   - test
-  - ci-fuzz
 env:
   global:
     - CI_RETRY_EXE="travis_retry"

@@ -1,4 +1,5 @@
- name: 'TARGET_NAME-fuzzer'
+    - stage: TARGET_NAME-fuzzer
+      name: 'TARGET_NAME-fuzzer'
       env:
       before_install: skip
       install: skip
