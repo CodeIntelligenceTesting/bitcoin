@@ -52,14 +52,14 @@ set -eu
 #./${CICTL} login -u "${CIFUZZ_CREDS_USR}" -p "${CIFUZZ_CREDS_PSW}"
 ./${CICTL} login -t "${CIFUZZ_TOKEN}"
 # Start Fuzzing
-LOG_FILE="start-$(basename "asmap_ci").logs"
+LOG_FILE="start-$(basename "asmap").logs"
 
 date
 ./${CICTL} start_fuzzing --daemon_listen_address="${FUZZING_SERVICE_URL}" --project_name="${PROJECT}" --campaign_name="${CAMPAIGN}" --git_branch="${GIT_BRANCH#*/}" | tee "${LOG_FILE}"
 
 set -eu
 # Get the name of the started campaign run from the logs
-LOG_FILE="start-$(basename "asmap_ci").logs"
+LOG_FILE="start-$(basename "asmap").logs"
 LINE=$(grep "display_name:" "${LOG_FILE}")
 CAMPAIGN_RUN=${LINE#*"display_name: "}
 
