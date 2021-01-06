@@ -3,7 +3,7 @@ export LC_ALL=C
 # Display name of the project.
 PROJECT='bitcoin'
 # Display name of the campaign to be run.
-CAMPAIGN='addition_overflow_ci'
+CAMPAIGN='addition_overflow'
 # Address of the fuzzing service
 FUZZING_SERVICE_URL='grpc-api.demo.code-intelligence.com:443'
 # Address of the fuzzing web interface
