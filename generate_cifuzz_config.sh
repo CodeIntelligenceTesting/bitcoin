@@ -9,6 +9,10 @@ FUZZ_TARGET_DIRECTORY=src/test/fuzz #directory to be searched for fuzz target so
 FUZZ_TARGET_CONFIG_DIRECTORY=.code-intelligence/fuzz_targets #directory in which the fuzz target configurations will be created (output location)
 CAMPAIGN_DIRECTORY=.code-intelligence/campaigns #directory in which the fuzz campaign configurations will be created (output location)
 
+#copy the manually configured part of the travis config file to .travis.yml.
+#Later an entry for every fuzz target will be appended at the file end.
+cat .code-intelligence/bitcoin_travis.yml > .travis.yml
+
 #iterate over all C++ files in the FUZZ_TARGET_DIRECTORY
 for file in "$FUZZ_TARGET_DIRECTORY"/*.cpp; do
 
@@ -25,5 +29,13 @@ for file in "$FUZZ_TARGET_DIRECTORY"/*.cpp; do
     path_to_campaign_config_file=${CAMPAIGN_DIRECTORY}/${test_name}.json
     echo "Generating $path_to_campaign_config_file"
     jq -j --arg t_name $test_name '{name: $t_name,displayName: $t_name,maxRunTime: .maxRunTime,fuzzTargets: [$t_name],fuzzerRunConfigurations: .fuzzerRunConfigurations}' .code-intelligence/ci_config.json > $path_to_campaign_config_file
+
+    #generate a travis CI/CD script for every fuzz target
+    echo "Generating ci/ci-fuzz/${test_name}.sh"
+    sed "s/TARGET_NAME/${test_name}/g" .code-intelligence/cicd_script_template.sh > ci/ci-fuzz/${test_name}.sh
+    
+    #Append a entry to the .travis.yml file
+    echo "Append entry for ${test_name} to .travis.yml"
+    sed "s/TARGET_NAME/${test_name}/g" .code-intelligence/travis_snippet >> .travis.yml
 done
 echo "All config files generated."
