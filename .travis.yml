@@ -26,7 +26,6 @@ cache:
 stages:
   - lint
   - test
-  - ci-fuzz
 env:
   global:
     - CI_RETRY_EXE="travis_retry"
@@ -64,24 +63,59 @@ jobs:
       before_script:
         - set -o errexit; source ./ci/lint/05_before_script.sh
       script:
-        - set -o errexit; source ./ci/lint/06_script.sh
-    - stage: key_io-fuzzer
-      name: 'key_io-fuzzer'
+        - set -o errexit; source ./ci/lint/06_script.sh    - stage: addrdb-fuzzer
+      name: 'addrdb-fuzzer'
       env:
       before_install: skip
       install: skip
       before_script: skip
       script:
-        - ./ci/ci-fuzz/key_io.sh
+        - ./ci/ci-fuzz/addrdb.sh
       after_script: skip
-    - stage: addition_overflow-fuzzer
-      name: 'addition_overflow-fuzzer'
+    - stage: addrman-fuzzer
+      name: 'addrman-fuzzer'
       env:
       before_install: skip
       install: skip
       before_script: skip
       script:
-        - ./ci/ci-fuzz/addition_overflow.sh
+        - ./ci/ci-fuzz/addrman.sh
+      after_script: skip
+    - stage: asmap-fuzzer
+      name: 'asmap-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/asmap.sh
+      after_script: skip
+    - stage: asmap_direct-fuzzer
+      name: 'asmap_direct-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/asmap_direct.sh
+      after_script: skip
+    - stage: autofile-fuzzer
+      name: 'autofile-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/autofile.sh
+      after_script: skip
+    - stage: banman-fuzzer
+      name: 'banman-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/banman.sh
       after_script: skip
     - stage: base_encode_decode-fuzzer
       name: 'base_encode_decode-fuzzer'
@@ -92,6 +126,15 @@ jobs:
       script:
         - ./ci/ci-fuzz/base_encode_decode.sh
       after_script: skip
+    - stage: bech32-fuzzer
+      name: 'bech32-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/bech32.sh
+      after_script: skip
     - stage: block-fuzzer
       name: 'block-fuzzer'
       env:
@@ -100,6 +143,87 @@ jobs:
       before_script: skip
       script:
         - ./ci/ci-fuzz/block.sh
+      after_script: skip
+    - stage: block_header-fuzzer
+      name: 'block_header-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/block_header.sh
+      after_script: skip
+    - stage: blockfilter-fuzzer
+      name: 'blockfilter-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/blockfilter.sh
+      after_script: skip
+    - stage: bloom_filter-fuzzer
+      name: 'bloom_filter-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/bloom_filter.sh
+      after_script: skip
+    - stage: buffered_file-fuzzer
+      name: 'buffered_file-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/buffered_file.sh
+      after_script: skip
+    - stage: chain-fuzzer
+      name: 'chain-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/chain.sh
+      after_script: skip
+    - stage: checkqueue-fuzzer
+      name: 'checkqueue-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/checkqueue.sh
+      after_script: skip
+    - stage: coins_view-fuzzer
+      name: 'coins_view-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/coins_view.sh
+      after_script: skip
+    - stage: connman-fuzzer
+      name: 'connman-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/connman.sh
+      after_script: skip
+    - stage: crypto-fuzzer
+      name: 'crypto-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/crypto.sh
       after_script: skip
     - stage: crypto_aes256-fuzzer
       name: 'crypto_aes256-fuzzer'
@@ -110,12 +234,660 @@ jobs:
       script:
         - ./ci/ci-fuzz/crypto_aes256.sh
       after_script: skip
-    - stage: asmap-fuzzer
-      name: 'asmap-fuzzer'
+    - stage: crypto_aes256cbc-fuzzer
+      name: 'crypto_aes256cbc-fuzzer'
       env:
       before_install: skip
       install: skip
       before_script: skip
       script:
-        - ./ci/ci-fuzz/asmap.sh
+        - ./ci/ci-fuzz/crypto_aes256cbc.sh
+      after_script: skip
+    - stage: crypto_chacha20-fuzzer
+      name: 'crypto_chacha20-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/crypto_chacha20.sh
+      after_script: skip
+    - stage: crypto_chacha20_poly1305_aead-fuzzer
+      name: 'crypto_chacha20_poly1305_aead-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/crypto_chacha20_poly1305_aead.sh
+      after_script: skip
+    - stage: crypto_common-fuzzer
+      name: 'crypto_common-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/crypto_common.sh
+      after_script: skip
+    - stage: crypto_hkdf_hmac_sha256_l32-fuzzer
+      name: 'crypto_hkdf_hmac_sha256_l32-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/crypto_hkdf_hmac_sha256_l32.sh
+      after_script: skip
+    - stage: crypto_poly1305-fuzzer
+      name: 'crypto_poly1305-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/crypto_poly1305.sh
+      after_script: skip
+    - stage: cuckoocache-fuzzer
+      name: 'cuckoocache-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/cuckoocache.sh
+      after_script: skip
+    - stage: decode_tx-fuzzer
+      name: 'decode_tx-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/decode_tx.sh
+      after_script: skip
+    - stage: descriptor_parse-fuzzer
+      name: 'descriptor_parse-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/descriptor_parse.sh
+      after_script: skip
+    - stage: deserialize-fuzzer
+      name: 'deserialize-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/deserialize.sh
+      after_script: skip
+    - stage: eval_script-fuzzer
+      name: 'eval_script-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/eval_script.sh
+      after_script: skip
+    - stage: fee_rate-fuzzer
+      name: 'fee_rate-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/fee_rate.sh
+      after_script: skip
+    - stage: fees-fuzzer
+      name: 'fees-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/fees.sh
+      after_script: skip
+    - stage: flatfile-fuzzer
+      name: 'flatfile-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/flatfile.sh
+      after_script: skip
+    - stage: float-fuzzer
+      name: 'float-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/float.sh
+      after_script: skip
+    - stage: fuzz-fuzzer
+      name: 'fuzz-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/fuzz.sh
+      after_script: skip
+    - stage: golomb_rice-fuzzer
+      name: 'golomb_rice-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/golomb_rice.sh
+      after_script: skip
+    - stage: hex-fuzzer
+      name: 'hex-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/hex.sh
+      after_script: skip
+    - stage: http_request-fuzzer
+      name: 'http_request-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/http_request.sh
+      after_script: skip
+    - stage: integer-fuzzer
+      name: 'integer-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/integer.sh
+      after_script: skip
+    - stage: key-fuzzer
+      name: 'key-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/key.sh
+      after_script: skip
+    - stage: key_io-fuzzer
+      name: 'key_io-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/key_io.sh
+      after_script: skip
+    - stage: kitchen_sink-fuzzer
+      name: 'kitchen_sink-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/kitchen_sink.sh
+      after_script: skip
+    - stage: load_external_block_file-fuzzer
+      name: 'load_external_block_file-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/load_external_block_file.sh
+      after_script: skip
+    - stage: locale-fuzzer
+      name: 'locale-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/locale.sh
+      after_script: skip
+    - stage: merkleblock-fuzzer
+      name: 'merkleblock-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/merkleblock.sh
+      after_script: skip
+    - stage: message-fuzzer
+      name: 'message-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/message.sh
+      after_script: skip
+    - stage: multiplication_overflow-fuzzer
+      name: 'multiplication_overflow-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/multiplication_overflow.sh
+      after_script: skip
+    - stage: net-fuzzer
+      name: 'net-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/net.sh
+      after_script: skip
+    - stage: net_permissions-fuzzer
+      name: 'net_permissions-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/net_permissions.sh
+      after_script: skip
+    - stage: netaddress-fuzzer
+      name: 'netaddress-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/netaddress.sh
+      after_script: skip
+    - stage: p2p_transport_deserializer-fuzzer
+      name: 'p2p_transport_deserializer-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/p2p_transport_deserializer.sh
+      after_script: skip
+    - stage: parse_hd_keypath-fuzzer
+      name: 'parse_hd_keypath-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/parse_hd_keypath.sh
+      after_script: skip
+    - stage: parse_iso8601-fuzzer
+      name: 'parse_iso8601-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/parse_iso8601.sh
+      after_script: skip
+    - stage: parse_numbers-fuzzer
+      name: 'parse_numbers-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/parse_numbers.sh
+      after_script: skip
+    - stage: parse_script-fuzzer
+      name: 'parse_script-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/parse_script.sh
+      after_script: skip
+    - stage: parse_univalue-fuzzer
+      name: 'parse_univalue-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/parse_univalue.sh
+      after_script: skip
+    - stage: policy_estimator-fuzzer
+      name: 'policy_estimator-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/policy_estimator.sh
+      after_script: skip
+    - stage: policy_estimator_io-fuzzer
+      name: 'policy_estimator_io-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/policy_estimator_io.sh
+      after_script: skip
+    - stage: pow-fuzzer
+      name: 'pow-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/pow.sh
+      after_script: skip
+    - stage: prevector-fuzzer
+      name: 'prevector-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/prevector.sh
+      after_script: skip
+    - stage: primitives_transaction-fuzzer
+      name: 'primitives_transaction-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/primitives_transaction.sh
+      after_script: skip
+    - stage: process_message-fuzzer
+      name: 'process_message-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/process_message.sh
+      after_script: skip
+    - stage: process_messages-fuzzer
+      name: 'process_messages-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/process_messages.sh
+      after_script: skip
+    - stage: protocol-fuzzer
+      name: 'protocol-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/protocol.sh
+      after_script: skip
+    - stage: psbt-fuzzer
+      name: 'psbt-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/psbt.sh
+      after_script: skip
+    - stage: random-fuzzer
+      name: 'random-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/random.sh
+      after_script: skip
+    - stage: rbf-fuzzer
+      name: 'rbf-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/rbf.sh
+      after_script: skip
+    - stage: rolling_bloom_filter-fuzzer
+      name: 'rolling_bloom_filter-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/rolling_bloom_filter.sh
+      after_script: skip
+    - stage: script-fuzzer
+      name: 'script-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script.sh
+      after_script: skip
+    - stage: script_assets_test_minimizer-fuzzer
+      name: 'script_assets_test_minimizer-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_assets_test_minimizer.sh
+      after_script: skip
+    - stage: script_bitcoin_consensus-fuzzer
+      name: 'script_bitcoin_consensus-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_bitcoin_consensus.sh
+      after_script: skip
+    - stage: script_descriptor_cache-fuzzer
+      name: 'script_descriptor_cache-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_descriptor_cache.sh
+      after_script: skip
+    - stage: script_flags-fuzzer
+      name: 'script_flags-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_flags.sh
+      after_script: skip
+    - stage: script_interpreter-fuzzer
+      name: 'script_interpreter-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_interpreter.sh
+      after_script: skip
+    - stage: script_ops-fuzzer
+      name: 'script_ops-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_ops.sh
+      after_script: skip
+    - stage: script_sigcache-fuzzer
+      name: 'script_sigcache-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_sigcache.sh
+      after_script: skip
+    - stage: script_sign-fuzzer
+      name: 'script_sign-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/script_sign.sh
+      after_script: skip
+    - stage: scriptnum_ops-fuzzer
+      name: 'scriptnum_ops-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/scriptnum_ops.sh
+      after_script: skip
+    - stage: secp256k1_ec_seckey_import_export_der-fuzzer
+      name: 'secp256k1_ec_seckey_import_export_der-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/secp256k1_ec_seckey_import_export_der.sh
+      after_script: skip
+    - stage: secp256k1_ecdsa_signature_parse_der_lax-fuzzer
+      name: 'secp256k1_ecdsa_signature_parse_der_lax-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/secp256k1_ecdsa_signature_parse_der_lax.sh
+      after_script: skip
+    - stage: signature_checker-fuzzer
+      name: 'signature_checker-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/signature_checker.sh
+      after_script: skip
+    - stage: signet-fuzzer
+      name: 'signet-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/signet.sh
+      after_script: skip
+    - stage: span-fuzzer
+      name: 'span-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/span.sh
+      after_script: skip
+    - stage: spanparsing-fuzzer
+      name: 'spanparsing-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/spanparsing.sh
+      after_script: skip
+    - stage: string-fuzzer
+      name: 'string-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/string.sh
+      after_script: skip
+    - stage: strprintf-fuzzer
+      name: 'strprintf-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/strprintf.sh
+      after_script: skip
+    - stage: system-fuzzer
+      name: 'system-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/system.sh
+      after_script: skip
+    - stage: timedata-fuzzer
+      name: 'timedata-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/timedata.sh
+      after_script: skip
+    - stage: transaction-fuzzer
+      name: 'transaction-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/transaction.sh
+      after_script: skip
+    - stage: tx_in-fuzzer
+      name: 'tx_in-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/tx_in.sh
+      after_script: skip
+    - stage: tx_out-fuzzer
+      name: 'tx_out-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/tx_out.sh
+      after_script: skip
+    - stage: txrequest-fuzzer
+      name: 'txrequest-fuzzer'
+      env:
+      before_install: skip
+      install: skip
+      before_script: skip
+      script:
+        - ./ci/ci-fuzz/txrequest.sh
       after_script: skip
