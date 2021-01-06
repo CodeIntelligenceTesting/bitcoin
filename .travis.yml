@@ -63,7 +63,8 @@ jobs:
       before_script:
         - set -o errexit; source ./ci/lint/05_before_script.sh
       script:
-        - set -o errexit; source ./ci/lint/06_script.sh    - stage: addrdb-fuzzer
+        - set -o errexit; source ./ci/lint/06_script.sh
+    - stage: addrdb-fuzzer
       name: 'addrdb-fuzzer'
       env:
       before_install: skip
