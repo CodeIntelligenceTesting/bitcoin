@@ -1,6 +1,8 @@
 Bitcoin Core integration/staging tree
 =====================================
 
+[![Fuzz Testing](https://travis-ci.com/github/CodeIntelligenceTesting/bitcoin.png)](https://travis-ci.com/github/CodeIntelligenceTesting/bitcoin)
+
 https://bitcoincore.org
 
 What is Bitcoin?
