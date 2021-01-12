@@ -9,7 +9,27 @@ stages:
   - fuzz
 
 env:
-global:
+  global:
+    - CI_RETRY_EXE: travis_retry
+    - CACHE_ERR_MSG: Error! Initial build successful, but not enough time remains to run later build stages and tests. See https://docs.travis-ci.com/user/customizing-the-build#build-timeouts . Please manually re-run this job by using the travis restart button. The next run should not time out because the build cache has been saved.
+      # Display name of the project.
+    - PROJECT: bitcoin
+      # Display name of the campaign to be run.
+    - CAMPAIGN: addition_overflow
+      # Address of the fuzzing service
+    - FUZZING_SERVICE_URL: grpc-api.demo.code-intelligence.com:443
+      # Address of the fuzzing web interface
+    - WEB_APP_URL: app.demo.code-intelligence.com
+      # Credentials for accessing the fuzzing service
+    - CICTL: cictl-${CICTL_VERSION}-linux
+    - CICTL_VERSION: '${CICTL_VERSION}'
+    - CICTL_SHA256SUM: '${CICTL_SHA256SUM}'
+    - CICTL_URL: https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-${CICTL_VERSION}-linux
+    - FINDINGS_TYPE: CRASH
+    - TIMEOUT: 900
+    - GIT_BRANCH: master
+
+
 jobs:
   include:
 
@@ -17,24 +37,6 @@ jobs:
       name: 'install'
       script:
         - |
-          CI_RETRY_EXE="travis_retry"
-          CACHE_ERR_MSG="Error! Initial build successful, but not enough time remains to run later build stages and tests. See https://docs.travis-ci.com/user/customizing-the-build#build-timeouts . Please manually re-run this job by using the travis restart button. The next run should not time out because the build cache has been saved."
-          # Display name of the project.
-          PROJECT = 'bitcoin'
-          # Display name of the campaign to be run.
-          CAMPAIGN = 'addition_overflow'
-          # Address of the fuzzing service
-          FUZZING_SERVICE_URL = 'grpc-api.demo.code-intelligence.com:443'
-          Address of the fuzzing web interface
-          WEB_APP_URL = 'app.demo.code-intelligence.com'
-          # Credentials for accessing the fuzzing service
-          CICTL = 'cictl-${CICTL_VERSION}-linux';
-          CICTL_VERSION = '${CICTL_VERSION}';
-          CICTL_SHA256SUM = '${CICTL_SHA256SUM}';
-          CICTL_URL = 'https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-${CICTL_VERSION}-linux';
-          FINDINGS_TYPE = 'CRASH';
-          TIMEOUT = '900';
-          GIT_BRANCH = 'master';
           set -eu
           # Download cictl if it doesn't exist already
           if [ ! -f "${CICTL}" ]; then wget "${CICTL_URL}" -O "${CICTL}"; fi
