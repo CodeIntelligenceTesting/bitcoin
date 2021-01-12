@@ -37,7 +37,7 @@ jobs:
       name: 'install'
       script:
         - |
-          set -eu
+          set -e
           # Download cictl if it doesn't exist already
           if [ ! -f "${CICTL}" ]; then wget "${CICTL_URL}" -O "${CICTL}"; fi
           # Verify the checksum
@@ -48,7 +48,7 @@ jobs:
       name: 'build'
       script:
         - |
-          set -eu
+          set -e
           # Log in
           # CIFUZZ_TOKEN is set as "encrypted value" in the travis
           ./${CICTL} login -t "${CIFUZZ_TOKEN}"
@@ -59,7 +59,7 @@ jobs:
       name: 'fuzz'
       script:
         - |
-          set -eu
+          set -e
           # Get the name of the started campaign run from the logs
           LOG_FILE="start-$(basename "addrman").logs"
           LINE=$(grep "display_name:" "${LOG_FILE}")
