@@ -51,7 +51,7 @@ jobs:
           set -e
           # Log in
           # CIFUZZ_TOKEN is set as "encrypted value" in the travis
-          ./${CICTL} login -t ${CIFUZZ_TOKEN}
+          ./${CICTL} login -t "${CIFUZZ_TOKEN}"
           # Start Fuzzing
           LOG_FILE="start-$(basename "addition_overflow").logs"
           ./${CICTL} start_fuzzing --daemon_listen_address="${FUZZING_SERVICE_URL}" --project_name="${PROJECT}" --campaign_name="${CAMPAIGN}" --git_branch="${GIT_BRANCH#*/}" | tee "${LOG_FILE}"
