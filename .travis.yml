@@ -21,9 +21,9 @@ env:
       # Address of the fuzzing web interface
     - WEB_APP_URL: app.demo.code-intelligence.com
       # Credentials for accessing the fuzzing service
-    - CICTL: cictl-${CICTL_VERSION}-linux
-    - CICTL_VERSION: ${CICTL_VERSION}
-    - CICTL_SHA256SUM: ${CICTL_SHA256SUM}
+    - CICTL: cictl-2.17.0-linux
+    - CICTL_VERSION: 2.17.0
+    - CICTL_SHA256SUM: ec7e7ead2a7f4ed3b09198efca3e410eff6a0909883f89b8d7f13674c4ff62fb
     - CICTL_URL: https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-${CICTL_VERSION}-linux
     - FINDINGS_TYPE: CRASH
     - TIMEOUT: 900
