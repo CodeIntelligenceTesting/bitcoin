@@ -1,63 +1,55 @@
-version: ~> 1.0
-dist: bionic
-os: linux
-language: minimal
-arch: amd64
-stages:
-#  - install
-#  - build
-  - fuzz
 
-env:
-  global:
-    - CI_RETRY_EXE: travis_retry
-    - CACHE_ERR_MSG: Error! Initial build successful, but not enough time remains to run later build stages and tests. See https://docs.travis-ci.com/user/customizing-the-build#build-timeouts . Please manually re-run this job by using the travis restart button. The next run should not time out because the build cache has been saved.
-      # Display name of the project.
-    - PROJECT: bitcoin
-      # Display name of the campaign to be run.
-    - CAMPAIGN: addition_overflow
-      # Address of the fuzzing service
-    - FUZZING_SERVICE_URL: grpc-api.demo.code-intelligence.com:443
-      # Address of the fuzzing web interface
-    - WEB_APP_URL: app.demo.code-intelligence.com
-      # Credentials for accessing the fuzzing service
-    - CICTL: cictl-2.17.0-linux
-    - CICTL_VERSION: 2.17.0
-    - CICTL_SHA256SUM: ec7e7ead2a7f4ed3b09198efca3e410eff6a0909883f89b8d7f13674c4ff62fb
-    - CICTL_URL: https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-${CICTL_VERSION}-linux
-    - FINDINGS_TYPE: CRASH
-    - TIMEOUT: 900
-    - GIT_BRANCH: master
-jobs:
-  include:
-    - stage: fuzz
-      name: 'fuzz'
-      script:
-        - |
-          set -e
-          # Download cictl if it doesn't exist already
-          if [ ! -f "${CICTL}" ]; then wget "${CICTL_URL}" -O "${CICTL}"; fi
-          # Verify the checksum
-          echo "${CICTL_SHA256SUM} "${CICTL}"" | sha256sum --check;
-          # Make it executable
-          chmod +x "${CICTL}";
-          set -e
-          # Log in
-          # CIFUZZ_TOKEN is set as "encrypted value" in the travis
-          ./${CICTL} login -t "${CIFUZZ_TOKEN}"
-          # Start Fuzzing
-          LOG_FILE="start-$(basename "addition_overflow").logs"
-          ./${CICTL} start_fuzzing --daemon_listen_address="${FUZZING_SERVICE_URL}" --project_name="${PROJECT}" --campaign_name="${CAMPAIGN}" --git_branch="${GIT_BRANCH#*/}" | tee "${LOG_FILE}"
-          set -e
-          # Get the name of the started campaign run from the logs
-          LOG_FILE="start-$(basename "addrman").logs"
-          LINE=$(grep "display_name:" "${LOG_FILE}")
-          CAMPAIGN_RUN="${LINE#*"display_name: "}"
-          # Monitor Fuzzing
-          ./${CICTL} monitor_campaign_run --daemon_listen_address="${FUZZING_SERVICE_URL}" --dashboard_address="${WEB_APP_URL}" --project_name="${PROJECT}" --campaign_run_name="${CAMPAIGN_RUN}" --duration="${TIMEOUT}" --findings_type="${FINDINGS_TYPE}"
-#    - stage: build
-#      name: 'build'
-#      script:
-#    - stage: fuzz
-#      name: 'fuzz'
-#      script:
+      version: ~> 1.0
+      dist: bionic
+      os: linux
+      language: minimal
+      arch: amd64
+      stages:
+        - fuzz
+      env:
+        global:
+          - CI_RETRY_EXE="travis_retry"
+          - CACHE_ERR_MSG="Error! Initial build successful, but not enough time remains to run later build stages and tests. See https://docs.travis-ci.com/user/customizing-the-build#build-timeouts . Please manually re-run this job by using the travis restart button. The next run should not time out because the build cache has been saved."
+          # Display name of the project.
+          - PROJECT = 'bitcoin'
+          # Display name of the campaign to be run.
+          - CAMPAIGN = 'addition_overflow'
+          # Address of the fuzzing service
+          - FUZZING_SERVICE_URL = 'grpc-api.code-intelligence.com:443'
+          # Address of the fuzzing web interface
+          - WEB_APP_URL = 'app.code-intelligence.com'
+          - CICTL = 'cictl-${CICTL_VERSION}-linux';
+          - CICTL_VERSION = '${CICTL_VERSION}';
+          - CICTL_SHA256SUM = '${CICTL_SHA256SUM}';
+          - CICTL_URL = 'https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-${CICTL_VERSION}-linux';
+          - FINDINGS_TYPE = 'CRASH';
+          - TIMEOUT = '900';
+          - GIT_BRANCH = 'master';
+      jobs:
+        include:
+          - stage: fuzz
+            name: 'fuzz'
+            script:
+              - |
+                set -e
+                # Download cictl if it doesn't exist already
+                if [ ! -f "${CICTL}" ]; then wget "${CICTL_URL}" -O "${CICTL}"; fi
+                # Verify the checksum
+                echo "d1f3644e94b78e2cbf1a4317e4a0ad57f9cc62bb68be898ced77ec3db6cc2a83 "${CICTL}"" | sha256sum --check;
+                # Make it executable
+                chmod +x "${CICTL}";
+                set -e
+                # Log in
+                # CIFUZZ_TOKEN has to be set as "encrypted value" in travis
+                ./${CICTL} login -t "${CIFUZZ_TOKEN}"
+                # Start Fuzzing
+                LOG_FILE="start-$(basename "addition_overflow").logs"
+                ./${CICTL} start_fuzzing --daemon_listen_address="${FUZZING_SERVICE_URL}" --project_name="${PROJECT}" --campaign_name="${CAMPAIGN}" --git_branch="${GIT_BRANCH#*/}" | tee "${LOG_FILE}"
+                set -e
+                # Get the name of the started campaign run from the logs
+                LOG_FILE="start-$(basename "addition_overflow").logs"
+                LINE=$(grep "display_name:" "${LOG_FILE}")
+                CAMPAIGN_RUN="${LINE#*"display_name: "}"
+                # Monitor Fuzzing
+                ./${CICTL} monitor_campaign_run --daemon_listen_address="${FUZZING_SERVICE_URL}" --dashboard_address="${WEB_APP_URL}" --project_name="${PROJECT}" --campaign_run_name="${CAMPAIGN_RUN}" --duration="${TIMEOUT}" --findings_type="${FINDINGS_TYPE}"
+    
