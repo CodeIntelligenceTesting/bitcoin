@@ -41,6 +41,7 @@
                 set -e
                 # Log in
                 # CIFUZZ_TOKEN has to be set as "encrypted value" in travis
+                echo ${CICTL}
                 ./${CICTL} login -t "${CIFUZZ_TOKEN}"
                 # Start Fuzzing
                 LOG_FILE="start-$(basename "addition_overflow").logs"
