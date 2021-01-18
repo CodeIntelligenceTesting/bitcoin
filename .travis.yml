@@ -30,7 +30,25 @@
           - stage: fuzz
             name: 'fuzz'
             script:
-              - sh -c '''
+              - echo "
+                CI_RETRY_EXE="travis_retry"
+                CACHE_ERR_MSG="Error! Initial build successful, but not enough time remains to run later build stages and tests. See https://docs.travis-ci.com/user/customizing-the-build#build-timeouts . Please manually re-run this job by using the travis restart button. The next run should not time out because the build cache has been saved."
+                # Display name of the project.
+                PROJECT = "bitcoin"
+                # Display name of the campaign to be run.
+                CAMPAIGN = "addition_overflow"
+                # Address of the fuzzing service
+                FUZZING_SERVICE_URL = "grpc-api.code-intelligence.com:443"
+                # Address of the fuzzing web interface
+                WEB_APP_URL = "app.code-intelligence.com"
+                CICTL = "cictl-${CICTL_VERSION}-linux";
+                CICTL_VERSION = "${CICTL_VERSION}";
+                CICTL_SHA256SUM = "${CICTL_SHA256SUM}";
+                CICTL_URL = "https://s3.eu-central-1.amazonaws.com/public.code-intelligence.com/cictl/cictl-${CICTL_VERSION}-linux";
+                FINDINGS_TYPE = "CRASH";
+                TIMEOUT = "900";
+                GIT_BRANCH = "master";
+                #! /bin/sh
                 set -e
                 # Download cictl if it doesn't exist already
                 if [ ! -f "${CICTL}" ]; then wget "${CICTL_URL}" -O "${CICTL}"; fi
@@ -53,4 +71,6 @@
                 CAMPAIGN_RUN="${LINE#*"display_name: "}"
                 # Monitor Fuzzing
                 ./${CICTL} monitor_campaign_run --daemon_listen_address="${FUZZING_SERVICE_URL}" --dashboard_address="${WEB_APP_URL}" --project_name="${PROJECT}" --campaign_run_name="${CAMPAIGN_RUN}" --duration="${TIMEOUT}" --findings_type="${FINDINGS_TYPE}"
-                '''
+                " > script.sh
+              - chmod +x script.sh
+              - ./script.sh
