@@ -30,7 +30,7 @@
           - stage: fuzz
             name: 'fuzz'
             script:
-              - |
+              - sh -c '''
                 set -e
                 # Download cictl if it doesn't exist already
                 if [ ! -f "${CICTL}" ]; then wget "${CICTL_URL}" -O "${CICTL}"; fi
@@ -53,4 +53,4 @@
                 CAMPAIGN_RUN="${LINE#*"display_name: "}"
                 # Monitor Fuzzing
                 ./${CICTL} monitor_campaign_run --daemon_listen_address="${FUZZING_SERVICE_URL}" --dashboard_address="${WEB_APP_URL}" --project_name="${PROJECT}" --campaign_run_name="${CAMPAIGN_RUN}" --duration="${TIMEOUT}" --findings_type="${FINDINGS_TYPE}"
-    
+                '''
