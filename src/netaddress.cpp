@@ -679,7 +679,7 @@ uint32_t CNetAddr::GetMappedAS(const std::vector<bool> &asmap) const {
     std::vector<bool> ip_bits(128);
     if (HasLinkedIPv4()) {
         // For lookup, treat as if it was just an IPv4 address (IPV4_IN_IPV6_PREFIX + IPv4 bits)
-        for (int8_t byte_i = 0; byte_i < 13; ++byte_i) { //codeintelligence: BUG: Introduce a buffer overflow here for demonstration purposes 
+        for (int8_t byte_i = 0; byte_i < 12; ++byte_i) {
             for (uint8_t bit_i = 0; bit_i < 8; ++bit_i) {
                 ip_bits[byte_i * 8 + bit_i] = (IPV4_IN_IPV6_PREFIX[byte_i] >> (7 - bit_i)) & 1;
             }
